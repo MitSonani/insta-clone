@@ -15,6 +15,6 @@ app.use(express.urlencoded({ extended: true, limit: "40kb" }))
 app.use(express.static("public"))
 app.use(cookieParser())
 
-app.use('/api/v1', userRoutes)
+app.use('/api/v1/user', userRoutes)
 
 module.exports = app

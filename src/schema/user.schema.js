@@ -1,6 +1,6 @@
-const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose')
+const bcrypt = require('bcrypt')
 
 const userSchema = new mongoose.Schema(
 
@@ -40,12 +40,12 @@ const userSchema = new mongoose.Schema(
 
 userSchema.pre("save", async function (next) {
     if (!this.isModified("password")) return next();
-    this.password = await bcryptjs.hash(this.password, 10)
+    this.password = await bcrypt.hash(this.password, 10)
     next()
 })
 
 userSchema.methods.isPasswordCorrect = async function (password) {
-    return await bcryptjs.compare(this.password, password)
+    return await bcrypt.compare(this.password, password)
 }
 
 userSchema.methods.genrateAccessToken = async function () {
@@ -61,7 +61,7 @@ userSchema.methods.genrateAccessToken = async function () {
 }
 
 
-userSchema.methods.refreshToken = async function () {
+userSchema.methods.genraterefreshToken = async function () {
     return jwt.sign({
         _id: this._id,
         username: this._username
