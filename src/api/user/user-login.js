@@ -39,8 +39,6 @@ module.exports = {
                 throw new ApiError(404, "user does not exist")
             }
             const isPasswordValid = await user.isPasswordCorrect(password)
-            const hashedpassword = await bcrypt.hash(password, 10)
-            console.log("cccc", user.password, hashedpassword)
 
             if (!isPasswordValid) {
                 throw new ApiError(404, "username or password is not correct")
