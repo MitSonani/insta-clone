@@ -1,5 +1,4 @@
 const User = require("../../schema/user.schema");
-const bcrypt = require('bcrypt')
 const ApiError = require("../../utils/ApiError");
 const ApiResponse = require("../../utils/ApiResponse");
 const { asyncHandler } = require("../../utils/asyncHandler");
