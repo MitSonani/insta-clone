@@ -12,7 +12,8 @@ const gernrateAccessandRefreshToken = async (userId) => {
         const accessToken = await user.genrateAccessToken()
 
         user.refreshToken = refreshToken
-        user.save()
+        user.accessToken = accessToken
+        await user.save()
 
         return { refreshToken, accessToken }
     } catch (error) {
@@ -45,7 +46,7 @@ module.exports = {
 
             const { refreshToken, accessToken } = await gernrateAccessandRefreshToken(user._id)
 
-            const loggedInUser = await User.findById(user._id).select("-password -refreshToken")
+            const loggedInUser = await User.findById(user._id).select("-password")
 
             const options = {
                 httpOnly: true,

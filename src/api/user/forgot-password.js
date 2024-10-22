@@ -25,8 +25,8 @@ module.exports = {
             throw new ApiError(404, "Current password is not correct")
         }
 
-        user.password = newPassword
-        user.save()
+        user.password = newPassword;
+        await user.save()
 
         return res.status(200).json(new ApiResponse(200, {}, "Password updated"))
 
