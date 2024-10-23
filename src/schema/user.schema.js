@@ -3,39 +3,16 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 
 const userSchema = new mongoose.Schema(
-
     {
-        username: {
-            type: String,
-            required: true,
-            toLowerCase: true
-        },
-        email: {
-            type: String,
-            required: true,
-            toLowerCase: true
-        },
-        password: {
-            type: String,
-            required: true,
-        },
-        profileImage: {
-            type: String,
-        },
-        bio: {
-            type: String,
-        },
-        gender: {
-            type: String,
-        },
-        refreshToken: {
-            type: String,
-        },
-        accessToken: {
-            type: String,
-
-        }
-
+        username: { type: String, required: true, oLowerCase: true },
+        email: { type: String, required: true, toLowerCase: true },
+        password: { type: String, required: true },
+        profileImage: { type: String },
+        bio: { type: String },
+        gender: { type: String },
+        refreshToken: { type: String },
+        accessToken: { type: String },
+        profileImagePublicId: { type: String }
     },
     {
         timestamps: true
@@ -64,7 +41,6 @@ userSchema.methods.genrateAccessToken = async function () {
     )
 }
 
-
 userSchema.methods.genraterefreshToken = async function () {
     return jwt.sign({
         _id: this._id,
@@ -75,7 +51,6 @@ userSchema.methods.genraterefreshToken = async function () {
     }
     )
 }
-
 
 const User = mongoose.model("User", userSchema)
 

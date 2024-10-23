@@ -11,6 +11,7 @@ router.put('/forget-password', authMiddelware, userApi.forgetPassword.handler)
 router.post('/genrateOtp', userApi.genrateOTP.handler)
 router.post('/verify-otp', userApi.verifyOtp.handler)
 router.put('/update-password', userApi.updatePassword.handler)
+router.put('/update-profilepic', authMiddelware, upload.single("profileImage"), userApi.updateProfilePic.handler)
 
 
 module.exports = router
