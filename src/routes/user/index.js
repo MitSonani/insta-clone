@@ -13,6 +13,8 @@ router.post('/verify-otp', userApi.verifyOtp.handler)
 router.put('/update-password', userApi.updatePassword.handler)
 router.put('/update-profilepic', authMiddelware, upload.single("profileImage"), userApi.updateProfilePic.handler)
 router.delete('/delete-profile', authMiddelware, userApi.deleteProfilePic.handler)
+router.get('/getprofilebyId/:userId', authMiddelware, userApi.getProfilebyId.handler)
+router.get('/get-profile', authMiddelware, userApi.getProfile.handler)
 
 
 module.exports = router

@@ -12,7 +12,8 @@ const userSchema = new mongoose.Schema(
         gender: { type: String },
         refreshToken: { type: String },
         accessToken: { type: String },
-        profileImagePublicId: { type: String }
+        profileImagePublicId: { type: String },
+        isPrivate: { type: Boolean, default: true }
     },
     {
         timestamps: true

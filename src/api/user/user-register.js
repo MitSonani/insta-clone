@@ -2,7 +2,7 @@ const User = require('../../schema/user.schema')
 const ApiError = require('../../utils/ApiError')
 const ApiResponse = require('../../utils/ApiResponse')
 const { asyncHandler } = require('../../utils/asyncHandler')
-const uploadOnCloudnary = require('../../utils/fileUpload')
+const { uploadOnCloudnary } = require('../../utils/fileUpload')
 
 module.exports = {
     handler:

@@ -7,6 +7,8 @@ const verifyOtp = require('./verify-otp')
 const updatePassword = require('./update-password')
 const updateProfilePic = require('./update-profilePic')
 const deleteProfilePic = require('./delete-profilePic')
+const getProfilebyId = require('./get-profilebyId')
+const getProfile = require('./get-login-user-profile')
 
 module.exports = {
     userSignup,
@@ -17,5 +19,7 @@ module.exports = {
     verifyOtp,
     updatePassword,
     updateProfilePic,
-    deleteProfilePic
+    deleteProfilePic,
+    getProfilebyId,
+    getProfile
 }
